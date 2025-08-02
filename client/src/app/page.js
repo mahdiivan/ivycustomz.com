@@ -115,9 +115,9 @@ export default function Home() {
           }}
         >
           <div style={{ textTransform: "uppercase", letterSpacing: "1px", fontSize: "14px", color: "#ccc" }}>
-            Premium Multicolor Lighting Kits
+            Premium Multicolor Lighting Service
           </div>
-          <h1 style={{ margin: 0, fontSize: "64px", fontWeight: 800, lineHeight: 1.1 }}>Light Up Your Ride</h1>
+          <h1 style={{ margin: 0, fontSize: "64px", fontWeight: 800, lineHeight: 1.1 }}>Dominate the Night</h1>
           <p style={{ margin: 0, fontSize: "18px", maxWidth: "700px", color: "#e5e5e5" }}>
             Custom automotive lighting built from scratch—bold, eye-catching, and uniquely yours.
           </p>
@@ -135,70 +135,170 @@ export default function Home() {
                 display: "inline-block",
               }}
             >
-              Let’s Glow. Let’s Go.
+              The Look Starts Here.
             </a>
             <div style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", color: "#ccc" }}>
-              Trusted by 50,000+ happy customers — rated 4.8/5
+              ← Check out our Products
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Work / Staggered video gallery */}
-      <section id="work" style={{ padding: "80px 24px", maxWidth: "1200px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "32px" }}>
-          <h2 style={{ fontSize: "36px", margin: 0, fontWeight: 700 }}>Check Out Our Work</h2>
-          <p style={{ marginTop: "8px", color: "#aaa" }}>
-            See how custom lighting transforms rides—dynamic, clean, and built to stand out.
-          </p>
-        </div>
+    {/* Our Work / Custom layout gallery */}
+<section id="work" style={{ padding: "80px 24px", maxWidth: "1200px", margin: "0 auto" }}>
+  <div style={{ textAlign: "center", marginBottom: "32px" }}>
+    <h2 style={{ fontSize: "36px", margin: 0, fontWeight: 700 }}>Check Out Our Work</h2>
+    <p style={{ marginTop: "8px", color: "#aaa" }}>
+      See how custom lighting transforms rides—dynamic, clean, and built to stand out.
+    </p>
+  </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
-            gap: "32px",
-          }}
-        >
-          {videos.map((video, idx) => {
-            const isPortrait = video.aspect === "9/16";
-            return (
-              <div
-                key={video.id}
-                style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  borderRadius: "12px",
-                  background: "#111",
-                  boxShadow: "0 30px 60px -10px rgba(0,0,0,0.5)",
-                  transform: idx % 2 === 1 ? "translateY(40px)" : "none",
-                  aspectRatio: isPortrait ? "9 / 16" : "16 / 9",
-                  minHeight: isPortrait ? "400px" : undefined,
-                }}
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  poster={video.poster}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
-                >
-                  {video.webm && <source src={video.webm} type="video/webm" />}
-                  {video.mp4 && <source src={video.mp4} type="video/mp4" />}
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+  <div
+    style={{
+      display: "grid",
+      gap: "32px",
+      gridTemplateColumns: "1fr 1fr 1fr",
+      gridTemplateRows: "repeat(2, auto)",
+      gridTemplateAreas: `
+        "v1 v2 v3"
+        "v4 v2 v5"
+      `,
+      alignItems: "start",
+    }}
+  >
+    {/* v1 top-left */}
+    <div
+      style={{
+        gridArea: "v1",
+        position: "relative",
+        overflow: "hidden",
+        borderRadius: "12px",
+        background: "#111",
+        boxShadow: "0 30px 60px -10px rgba(0,0,0,0.5)",
+        aspectRatio: "16 / 9",
+      }}
+    >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/hero-car.jpg"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      >
+        <source src="/hero.webm" type="video/webm" />
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    {/* v2 portrait middle (spanning both rows) */}
+    <div
+      style={{
+        gridArea: "v2",
+        position: "relative",
+        overflow: "hidden",
+        borderRadius: "12px",
+        background: "#111",
+        boxShadow: "0 30px 60px -10px rgba(0,0,0,0.5)",
+        aspectRatio: "9 / 16",
+        minHeight: "500px",
+        justifySelf: "center",
+      }}
+    >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/poster2.jpg"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      >
+        <source src="/video2.webm" type="video/webm" />
+        <source src="/video2.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    {/* v3 top-right */}
+    <div
+      style={{
+        gridArea: "v3",
+        position: "relative",
+        overflow: "hidden",
+        borderRadius: "12px",
+        background: "#111",
+        boxShadow: "0 30px 60px -10px rgba(0,0,0,0.5)",
+        aspectRatio: "16 / 9",
+      }}
+    >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/poster3.jpg"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      >
+        <source src="/video3.webm" type="video/webm" />
+        <source src="/video3.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    {/* v4 bottom-left */}
+    <div
+      style={{
+        gridArea: "v4",
+        position: "relative",
+        overflow: "hidden",
+        borderRadius: "12px",
+        background: "#111",
+        boxShadow: "0 30px 60px -10px rgba(0,0,0,0.5)",
+        aspectRatio: "16 / 9",
+      }}
+    >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/poster4.jpg"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      >
+        <source src="/video4.webm" type="video/webm" />
+        <source src="/video4.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    {/* v5 bottom-right */}
+    <div
+      style={{
+        gridArea: "v5",
+        position: "relative",
+        overflow: "hidden",
+        borderRadius: "12px",
+        background: "#111",
+        boxShadow: "0 30px 60px -10px rgba(0,0,0,0.5)",
+        aspectRatio: "16 / 9",
+      }}
+    >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/poster5.jpg"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      >
+        <source src="/video5.webm" type="video/webm" />
+        <source src="/video5.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>
 
       {/* Contact */}
       <div id="contact" style={{ background: "#0f0f0f", padding: "60px 24px" }}>
